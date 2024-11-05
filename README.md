@@ -109,11 +109,6 @@ docker build -t chocolate-house .
 
 docker run -p 5000:5000 chocolate-house
 
-### Step 5: Verify Everything Works
-
-1. After updating your README, run through the Docker build and run steps to ensure everything is functioning as expected.
-2. Commit your changes to the README and Dockerfile to your Git repository.
-
 ### Conclusion
 
 By following these steps, you will have successfully set up a Docker-based build and run environment for your project, and you will have updated your README file with clear instructions for users on how to use Docker to run the application.

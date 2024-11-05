@@ -62,3 +62,58 @@ Once the application is running, you will see output indicating that the server 
 
 Running on http://127.0.0.1:5000
 Open a web browser and navigate to http://127.0.0.1:5000 to access your Chocolate House application.
+
+# DOCKER
+Docker file
+Use the official Python image from the Docker Hub
+FROM python:3.9
+Set the working directory in the container
+WORKDIR /app
+Copy the requirements file to the working directory
+COPY requirements.txt .
+Install the dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+Copy the rest of the application code to the container
+COPY . .
+Set the environment variable for Flask
+ENV FLASK_APP=app.py
+Expose the port the app runs on
+EXPOSE 5000
+Command to run the application
+CMD ["flask", "run", "--host=0.0.0.0"]
+
+# Build the Docker image with the following command:
+
+docker build -t chocolate-house .
+
+# After the image is built, you can run your Docker container with the following command:
+
+docker run -p 5000:5000 chocolate-house
+
+## Docker Setup
+
+This project can be built and run using Docker.
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started) must be installed on your machine.
+
+### Building the Docker Image
+
+1. Navigate to the root directory of the project.
+2. Build the Docker image with the following command:
+
+docker build -t chocolate-house .
+   
+# Run the Docker container using the command:
+
+docker run -p 5000:5000 chocolate-house
+
+### Step 5: Verify Everything Works
+
+1. After updating your README, run through the Docker build and run steps to ensure everything is functioning as expected.
+2. Commit your changes to the README and Dockerfile to your Git repository.
+
+### Conclusion
+
+By following these steps, you will have successfully set up a Docker-based build and run environment for your project, and you will have updated your README file with clear instructions for users on how to use Docker to run the application.

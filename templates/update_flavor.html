@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Flavor</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Update Flavor</h1>
+      <form action="/update_flavor/{{ flavor.id }}" method="POST" class="mb-4">
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Flavor Name"
+              value="{{ flavor.name }}"
+              required
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              name="description"
+              class="form-control"
+              placeholder="Description"
+              value="{{ flavor.description }}"
+              required
+            />
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary">Update Flavor</button>
+          </div>
+        </div>
+      </form>
+      <a href="/" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </body>
+</html>

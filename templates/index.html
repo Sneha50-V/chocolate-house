@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocolate House - Seasonal Flavors</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Discover the Delights of the Chocolate House!</h1>
+      <h2 class="mt-4">Seasonal Flavors</h2>
+      <form action="/add_flavor" method="POST" class="mb-4">
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Flavor Name"
+              required
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              name="description"
+              class="form-control"
+              placeholder="Description"
+              required
+            />
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary">Add Flavor</button>
+          </div>
+        </div>
+      </form>
+      <ul class="list-group">
+        {% for flavor in flavors %}
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <div>
+            <strong>{{ flavor.name }}</strong> - {{ flavor.description }}
+          </div>
+          <div>
+            <a
+              href="/update_flavor/{{ flavor.id }}"
+              class="btn btn-warning btn-sm"
+              >Update</a
+            >
+            <form
+              action="/delete_flavor/{{ flavor.id }}"
+              method="POST"
+              style="display: inline"
+            >
+              <button
+                type="submit"
+                class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure you want to delete this flavor?');"
+              >
+                Delete
+              </button>
+            </form>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="mt-4">
+        <a href="/inventory" class="btn btn-secondary">Manage Inventory</a>
+        <a href="/suggestions" class="btn btn-secondary"
+          >Customer Suggestions</a
+        >
+      </div>
+    </div>
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocolate House - Suggestions</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Customer Flavor Suggestions</h1>
+      <form method="POST" class="mb-4">
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              name="customer_name"
+              class="form-control"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              name="flavor_suggestion"
+              class="form-control"
+              placeholder="Flavor Suggestion"
+              required
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              name="allergy_concern"
+              class="form-control"
+              placeholder="Allergy Concern (if any)"
+            />
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary">
+              Submit Suggestion
+            </button>
+          </div>
+        </div>
+      </form>
+      <ul class="list-group">
+        {% for suggestion in suggestions %}
+        <li class="list-group-item">
+          {{ suggestion.customer_name }} suggested: "{{
+          suggestion.flavor_suggestion }}" with allergy concern: "{{
+          suggestion.allergy_concern }}"
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="mt-4">
+        <a href="/" class="btn btn-secondary">Back to Seasonal Flavors</a>
+        <a href="/inventory" class="btn btn-secondary">Manage Inventory</a>
+      </div>
+    </div>
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

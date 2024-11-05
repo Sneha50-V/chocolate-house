@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocolate House - Inventory</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Ingredient Inventory</h1>
+      <form action="/add_ingredient" method="POST" class="mb-4">
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Ingredient Name"
+              required
+            />
+          </div>
+          <div class="col">
+            <input
+              type="number"
+              name="quantity"
+              class="form-control"
+              placeholder="Quantity"
+              required
+            />
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary">
+              Add Ingredient
+            </button>
+          </div>
+        </div>
+      </form>
+      <ul class="list-group">
+        {% for ingredient in ingredients %}
+        <li class="list-group-item">
+          {{ ingredient.name }} - Quantity: {{ ingredient.quantity }}
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="mt-4">
+        <a href="/" class="btn btn-secondary">Back to Seasonal Flavors</a>
+        <a href="/suggestions" class="btn btn-secondary"
+          >Customer Suggestions</a
+        >
+      </div>
+    </div>
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
